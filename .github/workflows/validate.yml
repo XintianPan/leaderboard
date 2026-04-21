@@ -1,0 +1,30 @@
+name: Validate submissions
+
+on:
+  pull_request:
+    paths:
+      - "data/runs/**"
+      - "data/index.json"
+      - "scripts/validate_submission.py"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate every submission
+        run: |
+          set -e
+          python -c "
+          import json, pathlib
+          idx = json.loads(pathlib.Path('data/index.json').read_text())
+          runs = idx['runs']
+          files = sorted(p.stem for p in pathlib.Path('data/runs').glob('*.json'))
+          assert sorted(runs) == files, f'index.json out of sync: {sorted(runs)} vs {files}'
+          "
+          for f in data/runs/*.json; do
+            python scripts/validate_submission.py "$f"
+          done

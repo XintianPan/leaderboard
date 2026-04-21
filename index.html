@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CD-Agent Leaderboard</title>
+  <meta name="description"
+        content="Leaderboard for CD-Agent: LLM agents solving digital-forensics challenges.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="js/leaderboard.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>CD-Agent Leaderboard</h1>
+    <p class="tagline">LLM agents vs. digital-forensics CTF labs — weighted accuracy across 14 scenarios, 237 graded questions.</p>
+    <nav>
+      <a href="#leaderboard-section">Leaderboard</a>
+      <a href="#about">About</a>
+      <a href="#submit">Submit a run</a>
+      <a href="https://github.com/XintianPan/leaderboard" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="leaderboard-section">
+      <h2>Leaderboard</h2>
+      <p class="lede">
+        Ranked by <strong>weighted accuracy</strong> — the fraction of rubric points awarded across all
+        237 questions. Click a row to drill into per-category and per-lab performance.
+      </p>
+      <div class="card" style="padding: 0; overflow-x: auto;">
+        <table id="leaderboard">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Model / Run</th>
+              <th>Agent&nbsp;style</th>
+              <th>Weighted accuracy</th>
+              <th class="num">Points</th>
+              <th class="num">Cost</th>
+              <th class="num">Steps</th>
+              <th>Judge</th>
+              <th>Submitter</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="drilldown" style="display:none;">
+      <h2 id="drilldown-title">Run detail</h2>
+      <div class="drilldown">
+        <div class="chart-wrap">
+          <h3 style="margin-top:0;">Per-category weighted accuracy</h3>
+          <div style="position:relative; height:420px;">
+            <canvas id="category-chart"></canvas>
+          </div>
+        </div>
+        <div class="card" style="padding:0; max-height:480px; overflow:auto;">
+          <table class="labs-table" id="labs-table">
+            <thead>
+              <tr>
+                <th>Lab</th><th>Scenario</th>
+                <th class="num">Accuracy</th>
+                <th class="num">Points</th>
+                <th class="num">Q</th>
+                <th class="num">Steps</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          <a href="https://github.com/XintianPan/CD-agent" target="_blank" rel="noopener">CD-Agent</a>
+          is a framework where an LLM agent, running inside a Kali-based Docker container, solves
+          professional digital-forensics challenges (PCAPs, disk images, memory dumps, malware samples).
+          Each run produces a <code>summary.json</code> aggregating points, cost, and token usage across
+          14 scenarios spanning 23 forensic categories.
+        </p>
+        <h3>What each column means</h3>
+        <ul>
+          <li><strong>Model</strong> — the LLM driving the agent (litellm-style identifier).</li>
+          <li><strong>Agent style</strong> — harness: <code>codeblock</code> (fenced output),
+              <code>native-tools</code> (provider tool-calling), or <code>claude-sdk</code>
+              (Claude Agent SDK).</li>
+          <li><strong>Weighted accuracy</strong> — points awarded divided by max points. The judge
+              grades factual questions by exact-match and analytical questions with an LLM rubric.</li>
+          <li><strong>Points</strong> — awarded / max across all 237 questions.</li>
+          <li><strong>Cost</strong> — agent-side USD (judge cost tracked separately in the JSON).</li>
+          <li><strong>Steps</strong> — total assistant turns across the run.</li>
+        </ul>
+        <p>
+          Only runs with <em>full coverage</em> (an answer for every question in every scenario) are
+          accepted on the public leaderboard; partial runs can still be evaluated locally with
+          <code>cdagent-eval --summary-over-submitted</code>.
+        </p>
+      </div>
+    </section>
+
+    <section id="submit">
+      <h2>Submit a run</h2>
+      <div class="card">
+        <ol>
+          <li>Run CD-Agent with full coverage of all 14 scenarios (237 questions) and produce
+              <code>summary.json</code> via <code>cdagent-eval &lt;run_dir&gt;</code>.</li>
+          <li>Build a submission file:
+<pre>python scripts/build_submission.py path/to/run_dir \
+    --run-name my-model-native-tools-v1 \
+    --submitter your-handle \
+    --notes "optional description"</pre>
+          </li>
+          <li>Validate locally:
+<pre>python scripts/validate_submission.py data/runs/my-model-native-tools-v1.json</pre>
+          </li>
+          <li>Open a PR against <a href="https://github.com/XintianPan/leaderboard" target="_blank" rel="noopener">XintianPan/leaderboard</a>
+              containing the new <code>data/runs/&lt;name&gt;.json</code> and the updated
+              <code>data/index.json</code>. CI runs the validator; partial-coverage runs are rejected.</li>
+        </ol>
+        <p>
+          <strong>Do not</strong> hand-edit <code>summary.json</code>. Submissions must come straight out
+          of <code>cdagent-eval</code> so the <code>model</code>, <code>agent_style</code>, and
+          <code>judge_model</code> fields are accurate.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Maintained by <a href="https://github.com/XintianPan" target="_blank" rel="noopener">Xintian Pan</a>.
+         Palette inspired by the Yale identity system. Data and framework:
+         <a href="https://github.com/XintianPan/CD-agent" target="_blank" rel="noopener">CD-Agent</a>.</div>
+  </footer>
+</body>
+</html>

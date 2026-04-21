@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CD-Agent leaderboard submission",
+  "type": "object",
+  "required": ["submission", "summary"],
+  "properties": {
+    "submission": {
+      "type": "object",
+      "required": ["run_name", "submitter", "submitted_at"],
+      "properties": {
+        "run_name":     { "type": "string", "pattern": "^[A-Za-z0-9._-]+$" },
+        "submitter":    { "type": "string", "minLength": 1 },
+        "submitted_at": { "type": "string", "format": "date" },
+        "notes":        { "type": "string" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "model", "agent_style", "judge_model", "coverage",
+        "total_questions", "total_points", "total_max_points",
+        "weighted_accuracy", "total_steps", "total_cost",
+        "per_category", "labs"
+      ],
+      "properties": {
+        "model":              { "type": "string" },
+        "agent_style":        { "enum": ["codeblock", "native-tools", "claude-sdk"] },
+        "judge_model":        { "type": "string" },
+        "coverage":           { "const": "full" },
+        "missing":            { "type": "array", "maxItems": 0 },
+        "total_questions":    { "type": "integer", "const": 237 },
+        "weighted_accuracy":  { "type": "number", "minimum": 0, "maximum": 1 },
+        "labs": {
+          "type": "array",
+          "minItems": 14,
+          "maxItems": 14,
+          "items": {
+            "type": "object",
+            "required": ["scenario_id", "scenario_name", "total_questions",
+                         "points_awarded", "max_points", "weighted_accuracy"]
+          }
+        }
+      }
+    }
+  }
+}
