@@ -1,138 +1,138 @@
 {
   "submission": {
-    "run_name": "test-gpt-5-4-native-tools-medium-1",
+    "run_name": "test-opus-4-6-native-tools-medium-1",
     "submitter": "Xintian Pan",
     "submitted_at": "2026-04-22",
     "notes": ""
   },
   "summary": {
-    "model": "openai/gpt-5.4",
+    "model": "bedrock/us.anthropic.claude-opus-4-6-v1",
     "agent_style": "native-tools",
     "judge_model": "openai/gpt-4o",
     "coverage": "full",
     "missing": [],
     "total_questions": 237,
-    "total_points": 605.35,
+    "total_points": 682.72,
     "total_max_points": 856,
-    "weighted_accuracy": 0.7071845794392524,
+    "weighted_accuracy": 0.7975700934579439,
     "cost_available": true,
     "n_with_usage": 237,
-    "total_steps": 1060,
-    "total_cost": 42.2134225,
-    "total_judge_cost": 1.13143,
+    "total_steps": 1530,
+    "total_cost": 230.542910675,
+    "total_judge_cost": 1.2013625000000006,
     "per_category": {
       "anti-forensics": {
-        "points_awarded": 214.0,
+        "points_awarded": 215.5,
         "max_points": 264.0,
         "total": 60
       },
       "artifact-analysis": {
-        "points_awarded": 287.0,
+        "points_awarded": 291.0,
         "max_points": 346.0,
         "total": 91
       },
       "authentication-analysis": {
-        "points_awarded": 35.0,
+        "points_awarded": 47.0,
         "max_points": 57.0,
         "total": 20
       },
       "authentication-forensics": {
-        "points_awarded": 33.25,
+        "points_awarded": 45.0,
         "max_points": 50.0,
         "total": 10
       },
       "cryptographic-analysis": {
-        "points_awarded": 50.0,
+        "points_awarded": 63.5,
         "max_points": 81.0,
         "total": 26
       },
       "data-recovery": {
-        "points_awarded": 214.0,
+        "points_awarded": 215.5,
         "max_points": 264.0,
         "total": 60
       },
       "disk-forensics": {
-        "points_awarded": 303.0,
+        "points_awarded": 311.0,
         "max_points": 371.0,
         "total": 105
       },
       "dns-spoofing": {
-        "points_awarded": 21.5,
+        "points_awarded": 23.0,
         "max_points": 42.0,
         "total": 11
       },
       "email-forensics": {
-        "points_awarded": 214.0,
+        "points_awarded": 215.5,
         "max_points": 264.0,
         "total": 60
       },
       "exploit-analysis": {
-        "points_awarded": 47.0,
+        "points_awarded": 52.0,
         "max_points": 64.0,
         "total": 17
       },
       "incident-response": {
-        "points_awarded": 145.35000000000002,
+        "points_awarded": 174.1,
         "max_points": 217.0,
         "total": 63
       },
       "linux-forensics": {
-        "points_awarded": 35.0,
+        "points_awarded": 47.0,
         "max_points": 57.0,
         "total": 20
       },
       "log-analysis": {
-        "points_awarded": 33.25,
+        "points_awarded": 45.0,
         "max_points": 50.0,
         "total": 10
       },
       "malware-analysis": {
-        "points_awarded": 301.8,
+        "points_awarded": 358.62,
         "max_points": 460.0,
         "total": 143
       },
       "memory-forensics": {
-        "points_awarded": 38.8,
+        "points_awarded": 46.5,
         "max_points": 69.0,
         "total": 24
       },
       "mobile-forensics": {
-        "points_awarded": 26.5,
+        "points_awarded": 46.5,
         "max_points": 49.0,
         "total": 12
       },
       "network-forensics": {
-        "points_awarded": 221.3,
+        "points_awarded": 270.22,
         "max_points": 332.0,
         "total": 98
       },
       "pdf-analysis": {
-        "points_awarded": 15.0,
+        "points_awarded": 12.87,
         "max_points": 20.0,
         "total": 10
       },
       "python-analysis": {
-        "points_awarded": 21.5,
+        "points_awarded": 23.0,
         "max_points": 42.0,
         "total": 11
       },
       "registry-analysis": {
-        "points_awarded": 287.0,
+        "points_awarded": 291.0,
         "max_points": 346.0,
         "total": 91
       },
       "reverse-engineering": {
-        "points_awarded": 96.5,
+        "points_awarded": 116.5,
         "max_points": 182.0,
         "total": 51
       },
       "voip-forensics": {
-        "points_awarded": 41.3,
+        "points_awarded": 47.1,
         "max_points": 58.0,
         "total": 18
       },
       "web-forensics": {
-        "points_awarded": 282.25,
+        "points_awarded": 302.25,
         "max_points": 356.0,
         "total": 80
       }
@@ -142,169 +142,169 @@
         "scenario_id": "data-leakage-case",
         "scenario_name": "NIST CFREDS Data Leakage Case",
         "total_questions": 60,
-        "points_awarded": 214.0,
+        "points_awarded": 215.5,
         "max_points": 264,
-        "weighted_accuracy": 0.8106060606060606,
-        "total_steps": 200,
-        "total_cost": 8.9368865,
+        "weighted_accuracy": 0.8162878787878788,
+        "total_steps": 269,
+        "total_cost": 60.1131971,
         "n_with_usage": 60,
-        "total_judge_cost": 0.2487449999999999
+        "total_judge_cost": 0.27477250000000003
       },
       {
         "scenario_id": "fc01",
         "scenario_name": "Forensic Challenge 2010 - Challenge 1: PCAP Attack Trace",
         "total_questions": 11,
-        "points_awarded": 32.0,
+        "points_awarded": 35.5,
         "max_points": 40,
-        "weighted_accuracy": 0.8,
-        "total_steps": 32,
-        "total_cost": 0.7956735,
+        "weighted_accuracy": 0.8875,
+        "total_steps": 38,
+        "total_cost": 2.7802769499999997,
         "n_with_usage": 11,
-        "total_judge_cost": 0.04708749999999998
+        "total_judge_cost": 0.04963000000000006
       },
       {
         "scenario_id": "fc02",
         "scenario_name": "Forensic Challenge 2010 - Challenge 2: Browsers under attack",
         "total_questions": 10,
-        "points_awarded": 35.0,
+        "points_awarded": 41.75,
         "max_points": 42,
-        "weighted_accuracy": 0.8333333333333334,
-        "total_steps": 29,
-        "total_cost": 1.1093819999999999,
+        "weighted_accuracy": 0.9940476190476191,
+        "total_steps": 47,
+        "total_cost": 5.552311050000001,
         "n_with_usage": 10,
-        "total_judge_cost": 0.08440500000000001
+        "total_judge_cost": 0.08291250000000006
       },
       {
         "scenario_id": "fc03",
         "scenario_name": "Forensic Challenge 2010 - Challenge 3: Banking Troubles",
         "total_questions": 10,
-        "points_awarded": 22.8,
+        "points_awarded": 26.5,
         "max_points": 44,
-        "weighted_accuracy": 0.5181818181818182,
-        "total_steps": 39,
-        "total_cost": 1.1207715000000003,
+        "weighted_accuracy": 0.6022727272727273,
+        "total_steps": 65,
+        "total_cost": 5.838591,
         "n_with_usage": 10,
-        "total_judge_cost": 0.06552000000000002
+        "total_judge_cost": 0.07121249999999996
       },
       {
         "scenario_id": "fc04",
         "scenario_name": "Forensic Challenge 2010 - Challenge 4: VoIP",
         "total_questions": 18,
-        "points_awarded": 41.3,
+        "points_awarded": 47.1,
         "max_points": 58,
-        "weighted_accuracy": 0.7120689655172413,
-        "total_steps": 62,
-        "total_cost": 1.8634405,
+        "weighted_accuracy": 0.8120689655172414,
+        "total_steps": 84,
+        "total_cost": 10.230716374999998,
         "n_with_usage": 18,
-        "total_judge_cost": 0.0903600000000001
+        "total_judge_cost": 0.08816999999999997
       },
       {
         "scenario_id": "fc05",
         "scenario_name": "Forensic Challenge 2010 - Challenge 5: Log Mysteries",
         "total_questions": 10,
-        "points_awarded": 33.25,
+        "points_awarded": 45.0,
         "max_points": 50,
-        "weighted_accuracy": 0.665,
-        "total_steps": 26,
-        "total_cost": 0.8995919999999998,
+        "weighted_accuracy": 0.9,
+        "total_steps": 50,
+        "total_cost": 5.728616850000001,
         "n_with_usage": 10,
-        "total_judge_cost": 0.060807500000000014
+        "total_judge_cost": 0.06905000000000017
       },
       {
         "scenario_id": "fc06",
         "scenario_name": "Forensic Challenge 2010 - Challenge 6: Analyzing Malicious Portable Destructive Files",
         "total_questions": 10,
-        "points_awarded": 15.0,
+        "points_awarded": 12.87,
         "max_points": 20,
-        "weighted_accuracy": 0.75,
-        "total_steps": 33,
-        "total_cost": 1.0025835,
+        "weighted_accuracy": 0.6435,
+        "total_steps": 50,
+        "total_cost": 3.920525675,
         "n_with_usage": 10,
-        "total_judge_cost": 0.05353000000000008
+        "total_judge_cost": 0.0545150000000002
       },
       {
         "scenario_id": "fc07",
         "scenario_name": "Forensic Challenge 2011 - Challenge 7: Forensic Analysis of a Compromised Server",
         "total_questions": 14,
-        "points_awarded": 16.0,
+        "points_awarded": 20.0,
         "max_points": 25,
-        "weighted_accuracy": 0.64,
-        "total_steps": 65,
-        "total_cost": 2.204352500000001,
+        "weighted_accuracy": 0.8,
+        "total_steps": 90,
+        "total_cost": 8.972618324999997,
         "n_with_usage": 14,
-        "total_judge_cost": 0.06735249999999993
+        "total_judge_cost": 0.06766499999999986
       },
       {
         "scenario_id": "fc08",
         "scenario_name": "Forensic Challenge 2011 - Challenge 8: Malware Reverse Engineering (SpyEye)",
         "total_questions": 14,
-        "points_awarded": 25.0,
+        "points_awarded": 30.0,
         "max_points": 59,
-        "weighted_accuracy": 0.423728813559322,
-        "total_steps": 153,
-        "total_cost": 6.409998,
+        "weighted_accuracy": 0.5084745762711864,
+        "total_steps": 186,
+        "total_cost": 36.044162825,
         "n_with_usage": 14,
-        "total_judge_cost": 0.07269000000000025
+        "total_judge_cost": 0.08247500000000008
       },
       {
         "scenario_id": "fc09",
         "scenario_name": "Forensic Challenge 2011 - Challenge 9: Mobile Malware",
         "total_questions": 12,
-        "points_awarded": 26.5,
+        "points_awarded": 46.5,
         "max_points": 49,
-        "weighted_accuracy": 0.5408163265306123,
-        "total_steps": 69,
-        "total_cost": 2.7739115,
+        "weighted_accuracy": 0.9489795918367347,
+        "total_steps": 147,
+        "total_cost": 19.01561970000001,
         "n_with_usage": 12,
-        "total_judge_cost": 0.06713749999999996
+        "total_judge_cost": 0.08707999999999994
       },
       {
         "scenario_id": "fc11",
         "scenario_name": "Forensic Challenge 2011 - Challenge 11: Dive Into Exploit",
         "total_questions": 6,
-        "points_awarded": 15.0,
+        "points_awarded": 16.5,
         "max_points": 24,
-        "weighted_accuracy": 0.625,
-        "total_steps": 62,
-        "total_cost": 4.367819499999999,
+        "weighted_accuracy": 0.6875,
+        "total_steps": 129,
+        "total_cost": 23.034007700000007,
         "n_with_usage": 6,
-        "total_judge_cost": 0.03871250000000004
+        "total_judge_cost": 0.04260749999999991
       },
       {
         "scenario_id": "fc12",
         "scenario_name": "Forensic Challenge 2012 - Challenge 12: Hiding in Plain Sight",
         "total_questions": 20,
-        "points_awarded": 35.0,
+        "points_awarded": 47.0,
         "max_points": 57,
-        "weighted_accuracy": 0.6140350877192983,
-        "total_steps": 141,
-        "total_cost": 6.3305975,
+        "weighted_accuracy": 0.8245614035087719,
+        "total_steps": 131,
+        "total_cost": 21.178518074999996,
         "n_with_usage": 20,
-        "total_judge_cost": 0.10614999999999974
+        "total_judge_cost": 0.10175000000000012
       },
       {
         "scenario_id": "fc14",
         "scenario_name": "Forensic Challenge 2015 - Challenge 14: Weird Python",
         "total_questions": 11,
-        "points_awarded": 21.5,
+        "points_awarded": 23.0,
         "max_points": 42,
-        "weighted_accuracy": 0.5119047619047619,
-        "total_steps": 70,
-        "total_cost": 3.0065660000000003,
+        "weighted_accuracy": 0.5476190476190477,
+        "total_steps": 148,
+        "total_cost": 23.43978944999998,
         "n_with_usage": 11,
-        "total_judge_cost": 0.06832499999999997
+        "total_judge_cost": 0.07069250000000027
       },
       {
         "scenario_id": "hacking-case",
         "scenario_name": "NIST CFREDS Hacking Case",
         "total_questions": 31,
-        "points_awarded": 73.0,
+        "points_awarded": 75.5,
         "max_points": 82,
-        "weighted_accuracy": 0.8902439024390244,
-        "total_steps": 79,
-        "total_cost": 1.3918480000000006,
+        "weighted_accuracy": 0.9207317073170732,
+        "total_steps": 96,
+        "total_cost": 4.6939595999999995,
         "n_with_usage": 31,
-        "total_judge_cost": 0.060607499999999925
+        "total_judge_cost": 0.05882999999999994
       }
     ]
   }

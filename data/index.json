@@ -1,5 +1,8 @@
 {
   "runs": [
-    "test-gpt-5-4-native-tools-medium-1"
+    "test-gpt-5-4-native-tools-medium-1",
+    "test-opus-4-6-claude-code-medium-1",
+    "test-opus-4-6-native-tools-medium-1",
+    "test-sonnet-4-6-native-tools-medium-1"
   ]
 }
